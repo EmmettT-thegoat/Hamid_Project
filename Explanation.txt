@@ -1,0 +1,50 @@
+Project Title: Enterprise Secure-Connect
+Multi-Vendor VPN & SIEM Integration Capstone
+Consultant: Emmett
+Objective: Design and implement a secure enterprise network featuring cross-vendor VPN connectivity, centralized logging, and proactive threat detection using Splunk.
+
+1. Executive Summary
+This project simulates a real-world cybersecurity engagement for a mid-sized enterprise.
+The architecture provides secure communication between two branch offices and remote employees while maintaining a "single pane of glass" visibility via a centralized Splunk instance.
+
+2. Network Architecture
+The infrastructure consists of two distinct sites and a remote user access point.  
+
+Infrastructure Components   
+
+Site A Firewall: Fortinet FortiGate (Next-Gen Firewall).   
+
+Site B Firewall: Fortinet FortiGate (Next-Gen Firewall).  
+
+Centralized SIEM: Splunk Enterprise.  
+
+Endpoints: Windows/Linux Servers and a Kali Linux attacker machine.
+
+3. Implementation Details
+Secure Connectivity
+
+Site-to-Site VPN: Established using IPsec tunnels between Palo Alto and FortiGate.  
+
+Remote Access: Configured Client-Based VPN for secure employee entry.  
+
+IP Scheme: A custom subnetted addressing scheme including dedicated LAN, DMZ, and Management segments.
+
+Monitoring & Detection
+
+Log Aggregation: Real-time log forwarding from firewalls, servers, and VPN tunnels to Splunk.  
+
+Security Dashboard: A custom-built dashboard to visualize traffic patterns and authentication attempts.
+
+To validate the security posture, two primary attack vectors were simulated and analyzed within Splunk: 
+Attack-Type  Tool Used      Detection Method
+Brute Force  Hydra / Kali   Splunk alert on multiple failed login attempts.
+(SSH/RDP)
+Port Scanning   Nmap        Firewall log analysis of dropped packets across a range of ports.
+
+
+5. Repository Structure
+
+/configs: Sanitized configuration files for firewalls and servers.  
+/images: Full-resolution topology diagrams and attack screenshots.  
+/scripts: (Optional) Automation scripts for deployment or log correlation.  
+Final_Report.pdf: Comprehensive 5-10 page technical analysis.
